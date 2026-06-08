@@ -48,6 +48,14 @@ function resetGame() {
   document.getElementById("words").style.transform = `translateY(0px)`;
   document.getElementById("cur-wpm").innerHTML = "0";
   document.getElementById("cur-accuracy").innerHTML = "0%";
+  const testContainer = document.querySelector(".test-container");
+  const resultCard = document.querySelector(".result-card");
+
+  testContainer.style.display = "block";
+  testContainer.classList.remove("fade-out");
+
+  resultCard.style.display = "none";
+  resultCard.classList.remove("fade-in");
 
   formText();
   letters = Array.from(document.querySelectorAll(".letter"));
@@ -81,6 +89,9 @@ function moveCursorForward() {
   if (cursorIndex < letters.length - 1) {
     cursorIndex++;
     updateCursorPosition();
+  }
+  else{
+    finishTest();
   }
 }
 
@@ -177,7 +188,7 @@ function setTimer(time) {
 
     if (timeLeft <= 0) {
       clearInterval(timerId);
-      curTime.textContent = "Time is up";
+      finishTest();
       document.removeEventListener("keydown", typeLetter);
     }
   }, 1000);
@@ -202,7 +213,11 @@ function calculateAccuracy() {
 function checkBestResult(wpm) {
   if (wpm > personalBest) {
     personalBest = wpm;
+    document.getElementById('personal-best').textContent = personalBest;
+    localStorage.setItem('personalBest', personalBest);
+    return true;
   }
+  return false;
 }
 
 function randomText(mode) {
@@ -232,6 +247,44 @@ function switchDifficulty(event) {
   event.target.blur();
 }
 
+function finishTest() {
+  // 1. Assign stats data across elements
+  document.getElementById("result-wpm").textContent =
+    document.getElementById("cur-wpm").textContent;
+  document.getElementById("result-accuracy").textContent =
+    document.getElementById("cur-accuracy").textContent;
+  document.getElementById("result-corrects").textContent =
+    document.querySelectorAll(".letter.correct").length;
+  document.getElementById("result-incorrects").textContent =
+    document.querySelectorAll(".letter.incorrect").length;
+
+  let resultTitle = document.querySelector('.result-title');
+
+  const testContainer = document.querySelector(".test-container");
+  const resultCard = document.querySelector(".result-card");
+
+  testContainer.classList.add("fade-out");
+
+  setTimeout(() => {
+    testContainer.style.display = "none";
+    resultCard.style.display = "block";
+    resultCard.offsetHeight;
+    resultCard.classList.add("fade-in");
+  }, 300);
+
+  let isBetter = checkBestResult(document.getElementById("result-wpm").textContent);
+
+  if(personalBest === 0) {
+    resultTitle.textContent = 'Baseline Established!';
+  }
+  else if(isBetter){
+    resultTitle.textContent = 'High Score Smashed!';
+  }
+  else{
+    resultTitle.textContent = 'Test completed!';
+  }
+}
+
 // --- EVENT LISTENERS ---
 
 resetGame();
@@ -244,6 +297,13 @@ difficultyButtons.forEach((button) => {
   button.addEventListener("click", (event) => switchDifficulty(event));
 });
 
-if (localStorage.getItem(personalBest) === null) {
-  localStorage.setItem(personalBest, 0);
+const tryAgainBtn = document.getElementById("try-again-btn");
+tryAgainBtn.addEventListener("click", () => resetGame());
+
+if (localStorage.getItem("personalBest") === null) {
+  localStorage.setItem("personalBest", "0");
+} else {
+  personalBest = parseInt(localStorage.getItem("personalBest"), 10);
 }
+
+document.getElementById('personal-best').textContent = personalBest;
