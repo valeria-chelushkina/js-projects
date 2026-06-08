@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  place-items: center center;
+  color: rgb(228, 228, 228);
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container {
+  width: 75%;
+  background-color: rgb(14, 14, 14);
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.upper-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.stats-block,
+.difficulties-block,
+.modes-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#words {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap; /* Allows words to naturally wrap to rows */
+  gap: 0px 8px; /* Spacing between words */
+  line-height: 35px; /* Explicit line height so rows are exactly 35px tall */
+  transition: transform 0.25s ease-in-out; /* Smooth scrolling effect! */
+  transform: translateY(0px); /* Controlled by JS */
+}
+
+.word {
+  display: inline-block;
+  height: 30px;
+}
+
+.main-text-block {
+  overflow: hidden;
+  line-height: 30px;
+  font-size: 23px;
+  font-family: monospace;
+  height: 510px;
+  position: relative;
+}
+
+.letter {
+  white-space: pre;
+}
+
+.current {
+  animation: blink 1s infinite;
+  background-color: rgb(112, 112, 112);
+}
+
+@keyframes blink {
+  0% {
+    background-color: rgba(112, 112, 112, 1);
+  }
+  50% {
+    background-color: rgba(112, 112, 112, 0);
+  }
+  100% {
+    background-color: rgba(112, 112, 112, 1);
+  }
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+  text-decoration: underline;
+}
+
+.result-card{
+    z-index: 3;
+    width: 50%;
+    background-color: white;
+    
+}
