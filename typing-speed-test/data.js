@@ -1,6 +1,6 @@
 export const data = {
-    easy: [
-        `He sensed the presence of someone.
+  easy: [
+    `He sensed the presence of someone.
 
 Amidst the swaying, indistinct shadows, this person, wearing a cap, was casually tucking his hands in his pockets, yet his eyes were bright.
 
@@ -31,13 +31,13 @@ His hands were clenched so tightly that it hurt.
 “Of course.”
 
 Two hearts came back to life at the same time.`,
-        `This wasn't his first live performance in life, nor even his comeback debut.
+    `This wasn't his first live performance in life, nor even his comeback debut.
 Yet somehow, Qin Yiyu had never been so utterly enveloped by a tidal wave of emotion. Though the performance had ended, the surge refused to subside.
 It felt as if this very moment marked the true beginning of his new life.
 Those extreme days filled with love and hate, devotion and betrayal, idolization and destruction finally faded away. No longer did he need to struggle endlessly between the clouds and the mud, enduring trials through loss. He sang the song his lover wrote for him, picked up the instrument he once couldn't bear to part with, and stepped back onto the right path.
 All because of Nan Yi. Because he had reached out to the man lying in the mire, taking over his utterly ruined life and offering selfless love and embrace.
 This was something Qin Yiyu could never have imagined half a year ago.`,
-        `He held Nan Yi tighter, almost as if trying to merge him into his own body.
+    `He held Nan Yi tighter, almost as if trying to merge him into his own body.
 He loved him so much—never had he cherished another independent being this deeply.
 Buried in the warm hollow of his neck, Qin Yiyu was enveloped in sweetness, calling his name over and over: "Nan Yi. Nan Yi, Xiao Yi..."
 "My bassist, my little junior..."
@@ -46,9 +46,9 @@ Suddenly, he remembered something and whispered excitedly into Nan Yi's ear, "I 
 But then he remembered it wasn't on hand—he'd have to go back and get it first.
 "In a few days, I'll bring it over for you to see, okay?"
 "Mm." Nan Yi turned his face and responded with a new, lingering kiss.`,
-    ],
-    medium: [
-        `“Qin Yiyu..."
+  ],
+  medium: [
+    `“Qin Yiyu..."
 He didn't respond, wrestling with his last shred of sanity.
 Since coming into this world, many had loved him, but none like Nan Yi. He thought he understood Nan Yi's heart now—perhaps not completely, but it was enough.
 He cradled Nan Yi's face as if holding the love he saw within him—quiet, deep, and flowing like still water. He held it with such care, afraid even a single drop might slip through his fingers.
@@ -56,7 +56,7 @@ Yes. It was love.
 Qin Yiyu suddenly understood. This word he’d never grasped before had taken on a new form—one with Nan Yi’s face. Beautiful. Sharp. Captivating. Dangerous. Calm. Restless.
 Snap. A guitar string snapped.
 He had fallen for Nan Yi.`,
-        `“I love you."
+    `“I love you."
 Qin Yiyu's heart melted. He cupped Nan Yi's face, gently kissed away his tear stains, and said solemnly, "I love you."
 Then he repeated it over and over, slowly, each word clear and deliberate.
 "I love you, I love you, I love you..."
@@ -65,10 +65,10 @@ He had never seen Nan Yi blush before. Thinking back, he couldn't recall a singl
 Seizing the moment, Qin Yiyu deliberately deepened the kiss, arching his nose bridge, his tongue flicking past the tip of his teeth before wrapping around his own, deep and lingering. Between their faces remained only thin oxygen, gasps, and the sticky, heart-racing sound of water.
 His hands pressed against Nan Yi's back, kneading with just the right pressure. Between kisses, he urged him to "come closer," just as Nan Yi had taught him while skiing—pushing his back until they were pressed tightly together.
 Every breath and pause was filled by Qin Yiyu's "I love you.”`,
-        "",
-    ],
-    hard: [
-        `What kind of sight is it to put a heart back into a person’s chest?
+    "",
+  ],
+  hard: [
+    `What kind of sight is it to put a heart back into a person’s chest?
 
 Whether in reality or in the game, Tang Erda had never seen such a bizarre, such an inconceivable scene.
 
@@ -165,7 +165,7 @@ Bai Liu’s lips moved, his voice so soft it was almost a breath:
 Bai Liu closed his eyes, letting himself sink into the rose fragrance on this guy that was about to make him faint. He self-destructively grasped the other’s hand, yet a clear laugh was present in his voice:
 
 “From the moment I remembered you, I started missing you.”`,
-        `Tawil’s voice came from behind him: “Are you leaving?”
+    `Tawil’s voice came from behind him: “Are you leaving?”
 
 “What are you going to do?”
 
@@ -236,7 +236,7 @@ The person inside the heart quickly changed from Su Yang to someone else.
 Bai Liu’s hair grew longer, his limbs became powerfully and perfectly sculpted, his body became covered in needle marks, thorns pierced through his neck, and he was bathed in blood. His silver-blue lashes drooped, and pale pink rose undiluted solution mixed with blood dripped from his jaw and eyelashes, while his curly hair coiled behind his waist.
 
 “Because this time… I want to become the monster being tortured,” Bai Liu said.`,
-        `“You have a pair of very beautiful eyes, why hide them?” Bai Liu asked abruptly in this bizarre scene.
+    `“You have a pair of very beautiful eyes, why hide them?” Bai Liu asked abruptly in this bizarre scene.
 
 And Spades, lying on the ground, cooperated with him and answered his question: “I don’t think it’s necessary to show my eyes to outsiders.”
 
@@ -269,9 +269,7 @@ A large amount of blood flowed out of Spades’ body. He confusedly embraced the
 Bai Liu did not answer, shrinking a bit further into Spades’ arms. The gun in his hand was not retracted; it was still pressed against Spades’ heart, feeling as if he might give Spades two more shots at any moment because of his displeasure.
 
 So Spades confusedly and clumsily patted Bai Liu’s shoulder and said, “I’m sorry, I won’t do this next time.”`,
-    ],
-    passage: [
-        `Thirteen minutes later, Tang Erda, Mu Shicheng, and Mu Ke were pulled into a group by Bai Liu.
+    `Thirteen minutes later, Tang Erda, Mu Shicheng, and Mu Ke were pulled into a group by Bai Liu.
 
 [music (Mu Shicheng)]: ?
 
@@ -360,7 +358,7 @@ But he felt that wearing it into the game was too… so he planned to wait and w
 So in the end, only Mu Shicheng endured the collapse and shame of wearing it in.
 
 Mu Shicheng tore off the dog tag and let out an earth-shaking roar: “You bunch of dog-bastards!!!”`,
-        `Finally, the statue stood up. Except for having its eyes closed and the cracks on its body, it was just like a real human.
+`Finally, the statue stood up. Except for having its eyes closed and the cracks on its body, it was just like a real human.
 
 Du Sanying’s crying stopped blankly.
 
@@ -497,7 +495,7 @@ Liu Jiayi pressed: “Where was Bai Liu injured?”
 Du Sanying recalled: “The heart.”
 
 “The doctor said someone cut open his heart.”`,
-        `Inside the game.
+`Inside the game.
 
 Bai Liu, unaware that he had gained a son, was sitting cross-legged on the bed, expressionlessly watching Spades sit on the floor bandaging his own wounds. Bai Liu’s fingers occasionally brushed against the muzzle of the gun in his arms.
 
@@ -542,5 +540,5 @@ Bai Liu leaned his neck forward, trying to pull away from Spades, his breathing 
 “I don’t believe you.” Spades’ voice was calm. His palm slid from Bai Liu’s neck up past the Adam’s apple, hooking Bai Liu’s lower jaw and pressing it back against his own shoulder, sticking closely to his body without a gap—he seemed to think this was the only way to control Bai Liu.
 
 “You are very smart and can use any small prop to escape the control of others.” Spades’ gaze was serious as his hands pressed down on Bai Liu, yet his tone was serious without a hint of desire: “I’ve seen your videos; you might have hidden a prop somewhere on your body to try and resist me.”`,
-    ]
+  ],
 };

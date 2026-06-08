@@ -1,6 +1,6 @@
-import {data} from "./data.js";
+import { data } from "./data2.js";
 
-const mode = data.passage;
+let mode = data.hard;
 let letters = [];
 let cursorIndex = 0;
 let totalKeystrokes = 0;
@@ -13,7 +13,12 @@ let isGameStarted = false;
 let timeElapsed = 0;
 let timerId = null;
 let gameDuration = 60;
-const buttons = document.querySelectorAll(".timed-mode");
+document.getElementById("hard").classList.add("active");
+document.querySelector(`[data-value="60"]`).classList.add("active");
+const modeButtons = document.querySelectorAll(".timed-mode");
+const difficultyButtons = document.querySelectorAll(
+  ".difficulties-block button",
+);
 
 function formatWord(word) {
   return `<div class="word"><span class="letter">${word.split("").join('</span><span class="letter">')}</span></div>`;
@@ -41,21 +46,26 @@ function resetGame() {
   mistakeCount = 0;
   currentLineOffset = 0;
   lastWordOffset = 0;
-  document.getElementById('words').style.transform = `translateY(0px)`;
-  document.getElementById('cur-wpm').innerHTML = '0';
-  document.getElementById('cur-accuracy').innerHTML = '0%';
+  document.getElementById("words").style.transform = `translateY(0px)`;
+  document.getElementById("cur-wpm").innerHTML = "0";
+  document.getElementById("cur-accuracy").innerHTML = "0%";
 
   formText();
   letters = Array.from(document.querySelectorAll(".letter"));
 
-  letters.forEach(letter => {
+  letters.forEach((letter) => {
     letter.dataset.original = letter.textContent;
   });
 
   updateCursorPosition();
 
   // reset visual elements
-  document.getElementById("cur-time").textContent = gameDuration;
+  if (gameDuration === "passage") {
+    document.getElementById("cur-time").textContent = "0";
+  } else {
+    document.getElementById("cur-time").textContent = gameDuration;
+  }
+
   document.getElementById("cur-wpm").textContent = "0";
 
   document.removeEventListener("keydown", typeLetter);
@@ -88,17 +98,18 @@ function updateCursorPosition() {
   if (!currentLetter) return;
   currentLetter.classList.add("current");
 
-  const currentWordDiv = currentLetter.closest('.word');
+  const currentWordDiv = currentLetter.closest(".word");
   const currentWordTop = currentWordDiv.offsetTop;
 
   if (currentWordTop > lastWordOffset) {
-    currentLineOffset -= 30; 
-    document.getElementById('words').style.transform = `translateY(${currentLineOffset}px)`;
+    currentLineOffset -= 30;
+    document.getElementById("words").style.transform =
+      `translateY(${currentLineOffset}px)`;
     lastWordOffset = currentWordTop;
-  } 
-  else if (currentWordTop < lastWordOffset) {
-    currentLineOffset += 30; 
-    document.getElementById('words').style.transform = `translateY(${currentLineOffset}px)`;
+  } else if (currentWordTop < lastWordOffset) {
+    currentLineOffset += 30;
+    document.getElementById("words").style.transform =
+      `translateY(${currentLineOffset}px)`;
     lastWordOffset = currentWordTop;
   }
 }
@@ -130,7 +141,7 @@ function typeLetter(event) {
   } else {
     currentLetter.classList.add("incorrect");
     currentLetter.classList.remove("correct");
-    currentLetter.textContent=event.key;
+    currentLetter.textContent = event.key;
     mistakeCount++;
   }
 
@@ -142,6 +153,19 @@ function typeLetter(event) {
 
 function setTimer(time) {
   const curTime = document.getElementById("cur-time");
+
+  if (time === "passage") {
+    curTime.textContent = timeElapsed;
+    timerId = setInterval(() => {
+      timeElapsed++;
+      curTime.textContent = timeElapsed;
+      document.getElementById("cur-wpm").textContent =
+        calculateWPM(timeElapsed);
+    }, 1000);
+
+    return;
+  }
+
   let timeLeft = time;
   curTime.textContent = timeLeft;
 
@@ -176,13 +200,13 @@ function calculateAccuracy() {
   return Math.max(0, accuracy);
 }
 
-function checkBestResult(wpm){
-  if(wpm > personalBest){
+function checkBestResult(wpm) {
+  if (wpm > personalBest) {
     personalBest = wpm;
-  };
+  }
 }
 
-function randomText(mode){
+function randomText(mode) {
   const randomText = mode[Math.floor(Math.random() * mode.length)];
   return randomText;
 }
@@ -191,18 +215,36 @@ function randomText(mode){
 
 resetGame();
 
-buttons.forEach((button) => {
-  button.classList.remove('active');
-  button.addEventListener("click", (event) => {
-    const timeClicked = event.currentTarget.dataset.time;
-    gameDuration = timeClicked;
-    resetGame();
-    startGame();
-    event.target.blur();
-    event.target.classList.add('active');
-  });
+function switchMode(event) {
+  modeButtons.forEach((button) => button.classList.remove("active"));
+  const value = event.currentTarget.dataset.value;
+  const activeButton = event.currentTarget;
+  activeButton.classList.add("active");
+  gameDuration = value;
+  resetGame();
+  event.target.blur();
+}
+
+function switchDifficulty(event) {
+  difficultyButtons.forEach((button) => button.classList.remove("active"));
+  const activeButton = event.currentTarget;
+  activeButton.classList.add("active");
+
+  const difficulty = activeButton.id;
+
+  mode = data[difficulty];
+  resetGame();
+  event.target.blur();
+}
+
+modeButtons.forEach((button) => {
+  button.addEventListener("click", (event) => switchMode(event));
 });
 
-if(localStorage.getItem(personalBest) === null) {
+difficultyButtons.forEach((button) => {
+  button.addEventListener("click", (event) => switchDifficulty(event));
+});
+
+if (localStorage.getItem(personalBest) === null) {
   localStorage.setItem(personalBest, 0);
-};
+}
