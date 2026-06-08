@@ -8,7 +8,6 @@ let mistakeCount = 0;
 let currentLineOffset = 0;
 let lastWordOffset = 0;
 let personalBest;
-
 let isGameStarted = false;
 let timeElapsed = 0;
 let timerId = null;
@@ -211,10 +210,6 @@ function randomText(mode) {
   return randomText;
 }
 
-// --- EVENT LISTENERS ---
-
-resetGame();
-
 function switchMode(event) {
   modeButtons.forEach((button) => button.classList.remove("active"));
   const value = event.currentTarget.dataset.value;
@@ -236,6 +231,10 @@ function switchDifficulty(event) {
   resetGame();
   event.target.blur();
 }
+
+// --- EVENT LISTENERS ---
+
+resetGame();
 
 modeButtons.forEach((button) => {
   button.addEventListener("click", (event) => switchMode(event));

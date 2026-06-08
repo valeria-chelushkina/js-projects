@@ -24,51 +24,74 @@
         </div>
       </header>
       <main>
-        <div class="upper-block">
-          <div class="stats-block">
-            <p>WPM: <span id="cur-wpm"></span></p>
-            <p>Accuracy: <span id="cur-accuracy"></span></p>
-            <p>Time: <span id="cur-time"></span></p>
+        <div class="test-container">
+          <div class="upper-block">
+            <div class="stats-block">
+              <p>WPM: <span id="cur-wpm"></span></p>
+              <p>Accuracy: <span id="cur-accuracy"></span></p>
+              <p>Time: <span id="cur-time"></span></p>
+            </div>
+            <div class="second-upper-block">
+              <div class="difficulties-block">
+                <p>Difficulties:</p>
+                <button id="easy">Easy</button>
+                <button id="medium">Medium</button>
+                <button id="hard">Hard</button>
+              </div>
+              <div class="modes-block">
+                <p>Modes:</p>
+                <button class="timed-mode" data-value="30">30s</button>
+                <button class="timed-mode" data-value="60">60s</button>
+                <button class="timed-mode" data-value="120">120s</button>
+                <button class="timed-mode" data-value="passage">Passage</button>
+              </div>
+            </div>
           </div>
-          <div class="second-upper-block">
-            <div class="difficulties-block">
-              <p>Difficulties:</p>
-              <button id="easy">Easy</button>
-              <button id="medium">Medium</button>
-              <button id="hard">Hard</button>
-            </div>
-            <div class="modes-block">
-              <p>Modes:</p>
-              <button class="timed-mode" data-value="30">30s</button>
-              <button class="timed-mode" data-value="60">60s</button>
-              <button class="timed-mode" data-value="120">120s</button>
-              <button class="timed-mode" data-value="passage">Passage</button>
-            </div>
+
+          <div class="main-text-block">
+            <div id="words"></div>
           </div>
         </div>
 
-        <div class="main-text-block">
-          <div id="words"></div>
+        <div class="result-card">
+          <div class="results-info">
+            <div class="completed-icon">
+              <div class="outer-green"></div>
+              <div class="inner-green"></div>
+              <img
+              src="./assets/images/icon-completed.svg"
+              alt="completed"
+            />
+            </div>
+            <p class="result-title">Test complete!</p>
+            <div class="results-block">
+              <div>
+                <p>WPM:</p>
+                <p id="result-wpm">100</p>
+              </div>
+              <div>
+                <p>Accuracy:</p>
+                <p id="result-accuracy">100%</p>
+              </div>
+              <div>
+                <p>Characters:</p>
+                <p>
+                  <span id="result-corrects">105</span>/<span
+                    id="result-incorrects"
+                    >5</span
+                  >
+                </p>
+              </div>
+            </div>
+            <button>Try again
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path fill="#000000" d="M1.563 1.281h.949c.246 0 .422.211.422.457l-.07 3.446a8.6 8.6 0 0 1 7.277-3.868c4.816 0 8.718 3.938 8.718 8.72-.035 4.816-3.937 8.683-8.718 8.683a8.86 8.86 0 0 1-5.871-2.215.446.446 0 0 1 0-.633l.703-.703c.14-.14.386-.14.562 0 1.23 1.09 2.813 1.723 4.606 1.723A6.88 6.88 0 0 0 17.03 10c0-3.797-3.093-6.89-6.89-6.89-2.813 0-5.203 1.687-6.293 4.078l4.43-.106c.245 0 .456.176.456.422v.95c0 .245-.21.421-.421.421h-6.75a.406.406 0 0 1-.422-.422v-6.75c0-.21.175-.422.422-.422"/></svg>
+            </button>
+          </div>
         </div>
       </main>
     </div>
 
     <div class="overlay"></div>
-
-    <div class="result-card">
-      <div class="results-info">
-        <p class="result-title">Your result</p>
-        <p>WPM: <span id="result-wpm">100</span></p>
-        <p>Accuracy: <span id="result-accuracy">100%</span></p>
-        <p class="result-corrects">
-          Correct/Incorrect: <span id="result-corrects">105</span>/<span
-            id="result-incorrects"
-            >5</span
-          >
-        </p>
-        <button>Try again</button>
-      </div>
-    </div>
 
     <script type="module" src="script.js"></script>
   </body>
