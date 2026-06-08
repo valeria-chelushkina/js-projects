@@ -1,49 +1,91 @@
+@font-face {
+  font-family: sora;
+  src: url(./assets/fonts/Sora/Sora-VariableFont_wght.ttf);
+}
+
 body {
   margin: 0;
   height: 100vh;
   display: flex;
   place-items: center center;
   color: rgb(228, 228, 228);
+  font-family: sora;
+  background-color: rgb(14, 14, 14);
 }
 
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: lighter;
+  color: rgb(219, 219, 219);
+}
+
+header p{
+  display: inline-block;
+  margin-left: 5px;
+}
+
+header p>span{
+  color: white;
+  font-weight: normal;
 }
 
 .container {
-  width: 75%;
-  background-color: rgb(14, 14, 14);
+  
   margin: auto;
+  margin-inline: 100px;
   border-radius: 10px;
   padding: 20px;
 }
 
 .upper-block {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  color: rgb(190, 190, 190);
+}
+
+.upper-block  span{
+  color: white;
+  margin-left: 3px;
+  font-size: 20px;
 }
 
 .stats-block,
 .difficulties-block,
-.modes-block {
+.modes-block,
+.second-upper-block {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 8px;
+}
+
+.stats-block p:not(:last-child)::after,
+.second-upper-block div:not(:last-child)::after{
+  content: '|';
+  font-size: 20px;
+}
+
+.stats-block p:not(:last-child)::after{
+margin-left: 8px;
 }
 
 #words {
-  width: 90%;
+  
+  width: 100%;
   margin: auto;
   display: flex;
-  flex-wrap: wrap; /* Allows words to naturally wrap to rows */
-  gap: 0px 8px; /* Spacing between words */
-  line-height: 35px; /* Explicit line height so rows are exactly 35px tall */
-  transition: transform 0.25s ease-in-out; /* Smooth scrolling effect! */
-  transform: translateY(0px); /* Controlled by JS */
+  flex-wrap: wrap;
+  gap: 0px 8px;
+  line-height: 35px;
+  transition: transform 0.25s ease-in-out;
+  transform: translateY(0px);
 }
 
 .word {
@@ -90,9 +132,61 @@ header {
   text-decoration: underline;
 }
 
-.result-card{
-    z-index: 3;
-    width: 50%;
-    background-color: white;
-    
+.result-card {
+  visibility: hidden;
+  color: black;
+  z-index: 3;
+  min-width: 300px;
+  background-color: white;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.results-info{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.result-title{
+  text-align: center;
+  margin-top: 0px;
+}
+
+.overlay {
+  position: fixed;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+button{
+  background-color: transparent;
+  color: white;
+  border-radius: 8px;
+  border: 1px rgb(123, 123, 123) solid;
+  font-size: 15px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+button.active{
+  color: rgb(137, 174, 255);
+  border-color: rgb(137, 174, 255);
+}
+
+button:hover{
+  color: rgb(137, 174, 255);
+  border-color: rgb(137, 174, 255);
 }

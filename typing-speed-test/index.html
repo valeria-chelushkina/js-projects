@@ -9,33 +9,41 @@
   <body>
     <div class="container">
       <header>
-        <div>Typing speed test</div>
-        <div>Personal best result</div>
+        <div>
+          <img src="./assets/images/logo-large.svg" alt="logo" />
+        </div>
+        <div>
+          <img
+            src="./assets/images/icon-personal-best.svg"
+            alt="personal-best"
+          />
+          <p>
+            Personal best result:
+            <span><span id="personal-best">0</span> WPM</span>
+          </p>
+        </div>
       </header>
       <main>
         <div class="upper-block">
           <div class="stats-block">
-            <div class="wpm">
-              <p>WPM: <span id="cur-wpm"></span></p>
-            </div>
-            <div class="accuracy">
-              <p>Accuracy: <span id="cur-accuracy"></span></p>
-            </div>
-            <div class="time">
-              <p>Time: <span id="cur-time"></span></p>
-            </div>
+            <p>WPM: <span id="cur-wpm"></span></p>
+            <p>Accuracy: <span id="cur-accuracy"></span></p>
+            <p>Time: <span id="cur-time"></span></p>
           </div>
-          <div class="difficulties-block">
-            <p>Difficulties:</p>
-            <button id="easy">Easy</button>
-            <button id="medium">Medium</button>
-            <button id="hard">Hard</button>
-          </div>
-          <div class="modes-block">
-            <button class="timed-mode" data-time="60">Timed (60s)</button>
-            <button class="timed-mode" data-time="30">Timed (30s)</button>
-            <button class="timed-mode" data-time="120">Timed (120s)</button>
-            <button>Passage</button>
+          <div class="second-upper-block">
+            <div class="difficulties-block">
+              <p>Difficulties:</p>
+              <button id="easy">Easy</button>
+              <button id="medium">Medium</button>
+              <button id="hard">Hard</button>
+            </div>
+            <div class="modes-block">
+              <p>Modes:</p>
+              <button class="timed-mode" data-time="30">30s</button>
+              <button class="timed-mode" data-time="60">60s</button>
+              <button class="timed-mode" data-time="120">120s</button>
+              <button>Passage</button>
+            </div>
           </div>
         </div>
 
@@ -43,11 +51,23 @@
           <div id="words"></div>
         </div>
       </main>
+    </div>
 
-      <div class="result-card">
-        
+    <div class="overlay"></div>
+
+    <div class="result-card">
+      <div class="results-info">
+        <p class="result-title">Your result</p>
+        <p>WPM: <span id="result-wpm">100</span></p>
+        <p>Accuracy: <span id="result-accuracy">100%</span></p>
+        <p class="result-corrects">
+          Correct/Incorrect: <span id="result-corrects">105</span>/<span
+            id="result-incorrects"
+            >5</span
+          >
+        </p>
+        <button>Try again</button>
       </div>
-
     </div>
 
     <script type="module" src="script.js"></script>

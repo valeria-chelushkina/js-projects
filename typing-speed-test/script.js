@@ -192,12 +192,14 @@ function randomText(mode){
 resetGame();
 
 buttons.forEach((button) => {
+  button.classList.remove('active');
   button.addEventListener("click", (event) => {
     const timeClicked = event.currentTarget.dataset.time;
     gameDuration = timeClicked;
     resetGame();
     startGame();
     event.target.blur();
+    event.target.classList.add('active');
   });
 });
 
