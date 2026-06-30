@@ -89,8 +89,7 @@ function moveCursorForward() {
   if (cursorIndex < letters.length - 1) {
     cursorIndex++;
     updateCursorPosition();
-  }
-  else{
+  } else {
     finishTest();
   }
 }
@@ -213,8 +212,8 @@ function calculateAccuracy() {
 function checkBestResult(wpm) {
   if (wpm > personalBest) {
     personalBest = wpm;
-    document.getElementById('personal-best').textContent = personalBest;
-    localStorage.setItem('personalBest', personalBest);
+    document.getElementById("personal-best").textContent = personalBest;
+    localStorage.setItem("personalBest", personalBest);
     return true;
   }
   return false;
@@ -258,7 +257,7 @@ function finishTest() {
   document.getElementById("result-incorrects").textContent =
     document.querySelectorAll(".letter.incorrect").length;
 
-  let resultTitle = document.querySelector('.result-title');
+  let resultTitle = document.querySelector(".result-title");
 
   const testContainer = document.querySelector(".test-container");
   const resultCard = document.querySelector(".result-card");
@@ -272,16 +271,16 @@ function finishTest() {
     resultCard.classList.add("fade-in");
   }, 300);
 
-  let isBetter = checkBestResult(document.getElementById("result-wpm").textContent);
+  let isBetter = checkBestResult(
+    document.getElementById("result-wpm").textContent,
+  );
 
-  if(personalBest === 0) {
-    resultTitle.textContent = 'Baseline Established!';
-  }
-  else if(isBetter){
-    resultTitle.textContent = 'High Score Smashed!';
-  }
-  else{
-    resultTitle.textContent = 'Test completed!';
+  if (personalBest === 0) {
+    resultTitle.textContent = "Baseline Established!";
+  } else if (isBetter) {
+    resultTitle.textContent = "High Score Smashed!";
+  } else {
+    resultTitle.textContent = "Test completed!";
   }
 }
 
@@ -306,4 +305,4 @@ if (localStorage.getItem("personalBest") === null) {
   personalBest = parseInt(localStorage.getItem("personalBest"), 10);
 }
 
-document.getElementById('personal-best').textContent = personalBest;
+document.getElementById("personal-best").textContent = personalBest;

@@ -38,7 +38,6 @@ header p > span {
 }
 
 .container {
-  
   margin-inline: 100px;
   border-radius: 10px;
   padding: 20px;
@@ -48,7 +47,9 @@ header p > span {
 .test-container {
   opacity: 1;
   transform: scale(1);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .test-container.fade-out {
@@ -153,14 +154,16 @@ header p > span {
   text-align: center;
   margin: auto;
   height: 510px;
-  display: none; 
+  display: none;
   opacity: 0;
   transform: scale(0.95);
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .result-card.fade-in {
- opacity: 1;
+  opacity: 1;
   transform: scale(1);
 }
 
@@ -245,7 +248,7 @@ button:hover {
   height: 50%;
 }
 
-.result-title{
+.result-title {
   font-size: 33px;
   font-weight: bold;
   margin: 0;
@@ -259,7 +262,7 @@ button:hover {
   font-size: 19px;
 }
 
-.results-block>div{
+.results-block > div {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -270,27 +273,28 @@ button:hover {
   flex: 1;
 }
 
-.results-block>div p{
+.results-block > div p {
   margin: 0;
 }
 
-.results-block>div p:not(:first-child){
+.results-block > div p:not(:first-child) {
   font-weight: bold;
 }
 
-#result-wpm{
+#result-wpm {
   color: rgb(247, 247, 247);
 }
 
-#result-accuracy, #result-incorrects{
+#result-accuracy,
+#result-incorrects {
   color: rgb(232, 65, 65);
 }
 
-#result-corrects{
+#result-corrects {
   color: green !important;
 }
 
-.results-info button{
+.results-info button {
   font-size: 20px;
   padding: 8px 15px;
   background-color: white;
@@ -298,17 +302,17 @@ button:hover {
   font-weight: 600;
 }
 
-.results-info button>svg{
+.results-info button > svg {
   height: 18px;
   margin-bottom: -3.5px;
   margin-left: 5px;
 }
 
-.results-info button:hover{
+.results-info button:hover {
   opacity: 0.8;
 }
 
-.results-info button:active{
+.results-info button:active {
   opacity: 0.7;
 }
 
