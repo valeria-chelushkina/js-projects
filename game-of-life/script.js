@@ -13,45 +13,39 @@ let gridSize = 20;
 
 let grid = [];
 
-/*
-function changeGridSize() {
-  const gridSize = document.getElementById("grid-size");
-  gridSize.addEventListener("input", (event) => {
-    const curNumber = Number(event.target.value);
-    if (curNumber < 8) {
-      event.target.value = 8;
-      curNumber = 8;
-    }
-    if (curNumber > 50) {
-      event.target.value = 50;
-      curNumber = 50;
-    }
-    rows = curNumber;
-    cols = curNumber;
-  });
-}*/
-
 document.addEventListener("DOMContentLoaded", () => {
   changeGridSize();
+  clickOnCell();
 });
+
+function clickOnCell() {
+  document.addEventListener("click", (event) => {
+    const clickedCell = event.target;
+    if (clickedCell.classList.contains("cell")) {
+      pauseGame();
+      const cellId = clickedCell.id;
+      const index = cellId.indexOf("-");
+      const cellRow = cellId.slice(0, index);
+      const cellCol = cellId.slice(index + 1);
+      grid[cellRow][cellCol] = !grid[cellRow][cellCol];
+      updateBoard();
+    }
+  });
+}
 
 function changeGridSize() {
   const gridSizeField = document.getElementById("grid-size");
   gridSizeField.value = gridSize;
   gridSizeField.addEventListener("change", (event) => {
+    pauseGame();
     const curValue = Number(event.target.value);
-    console.log("curValue = " + curValue);
-    console.log("gridSize = " + gridSize);
     if (curValue < 8 || curValue > 50 || !Number.isInteger(curValue)) {
       alert("The grid size is not in range! Please choose another one.");
       gridSizeField.value = gridSize;
       return;
-    }
-    if (curValue > gridSize) {
-      console.log("Should increase");
+    } else if (curValue > gridSize) {
       increaseGridSize(curValue - gridSize);
     } else if (curValue < gridSize) {
-      console.log("Should decrease");
       decreaseGridSize(gridSize - curValue);
     }
 
@@ -61,9 +55,6 @@ function changeGridSize() {
   });
 }
 
-/**
- * Increases grid array size by 1.
- */
 function increaseGridSize(amount) {
   for (let j = 0; j < amount; j++) {
     rows++;
@@ -207,8 +198,7 @@ function pauseGame() {
 }
 
 function restartGame() {
-  clearInterval(intervalId);
-  isPlaying = false;
+  pauseGame();
   initializeGrid();
   updateBoard();
 }
@@ -224,8 +214,7 @@ const restartBtn = document.getElementById("restart-btn");
 restartBtn.addEventListener("click", restartGame);
 const randomizeBtn = document.getElementById("randomize-btn");
 randomizeBtn.addEventListener("click", () => {
-  clearInterval(intervalId);
-  isPlaying = false;
+  pauseGame();
   randomizeGrid();
   updateBoard();
 });
